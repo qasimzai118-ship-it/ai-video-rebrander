@@ -26,6 +26,7 @@ jobs:
           sed -i 's/STD_K = 2.5$/STD_K = 2.5f/' $F/Analysis.kt
           sed -i '/buildNotification(/ s/, 0)/, 0f)/' $F/ExportService.kt
           sed -i 's/^        return outputFile$/        return@withContext outputFile/' $F/VideoProcessor.kt
+          sed -i 's/Contrast(1.07f)/Contrast(0.07f)/; s/Contrast(1.16f)/Contrast(0.16f)/' $F/VideoProcessor.kt
           grep -E "8.8.2|parcelize|2.2.10" build.gradle.kts
           grep -E "compileSdk|targetSdk" app/build.gradle.kts | head -3
           grep -n "toInt().coerceAtLeast(1)" $F/Analysis.kt
